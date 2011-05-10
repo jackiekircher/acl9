@@ -38,7 +38,7 @@ module Acl9
         join_table = options[:join_table_name] || Acl9::config[:default_join_table_name] ||
                     join_table_name(undecorated_table_name(self.to_s), undecorated_table_name(role))
 
-        has_many :roles, :through => join_table
+        has_many :roles, :through => :roles_users
 
         cattr_accessor :_auth_role_class_name, :_auth_subject_class_name,
                        :_auth_role_assoc_name
